@@ -493,7 +493,7 @@ def second_rule(bricks, row, col, colour, opp_colour, size):
         return bricks_to_flip
         
         
-        
+## function for checking the points of the computer and the player        
 def check_points(bricks, players_colour, PC_colour):
     players_points = 0
     computers_points = 0
@@ -507,7 +507,9 @@ Your points:", players_points)
     return players_points, computers_points
             
 
-
+## check if there are more possible moves
+## if not the game is finished
+## if only not for the current player, then he has to skip the turn
 def check_game_finished(bricks, colour, opp_colour, players_colour, PC_colour, size, name):
     players_points, computers_points = check_points(bricks, players_colour, PC_colour)
 
@@ -543,7 +545,6 @@ def check_game_finished(bricks, colour, opp_colour, players_colour, PC_colour, s
                 choice = input("You wanna play again? Answer 'yes' or 'no'\n")
                 if choice in ("yes", "Yes", "y", "Y"):
                     start_game(name)
-
                 elif choice in ("no", "No", "n", "N"):
                     print("Goodbye and have a nice day")
                     quit()
@@ -558,6 +559,7 @@ def check_game_finished(bricks, colour, opp_colour, players_colour, PC_colour, s
     elif possible_moves == 0 and opp_possible_moves > 0:
         return "Skip" 
 
+## Write new highscore to a textfile
 def write_file(highscore, name):
     try:
         with open("Highscore.txt", "r") as text:
@@ -576,6 +578,7 @@ def write_file(highscore, name):
         with open("Highscore.txt","w") as text:
             text.writelines(new_entry)
 
+## Give hint of possible moves for the player
 def give_hint(bricks, colour, opp_colour, size):
     available_bricks = []
     for brick in bricks:
