@@ -1,3 +1,9 @@
+## This is the code for the Reversi game
+## One player can play this against the computer
+## For more information about Reversi, 
+## see https://en.wikipedia.org/wiki/Reversi
+
+
 import random
 import datetime
 import re
